@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Houston Apartment Locator | Med Center & Houston Rentals | Abraham Zehaifi</title>
+  <meta name="description" content="Houston apartment locator helping renters find Med Center, Downtown, and Energy Corridor apartments and lease homes. No-fee locating — get a curated list of Houston rentals matched to your budget and move-in date.">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --primary: #1b4b8f;
+      --text-main: #222;
+      --text-soft: #666;
+      --border-soft: #e3e5ea;
+      --bg-soft: #f7f7fb;
+      --max-width: 880px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      color: var(--text-main);
+      background: #ffffff;
+    }
+
+    a { color: var(--primary); }
+
+    header {
+      border-bottom: 1px solid var(--border-soft);
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 20px 8px;
+    }
+
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .brand strong { font-size: 1rem; }
+
+    nav {
+      display: flex;
+      gap: 12px;
+      font-size: 0.88rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+    }
+    nav a:hover { border-bottom-color: var(--primary); }
+
+    .lang-row {
+      margin-top: 6px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      overflow: hidden;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      padding: 4px 10px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      color: var(--primary);
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* HERO – bright exotic image */
+    .hero {
+      position: relative;
+      padding: 52px 20px 44px;
+      border-bottom: 1px solid var(--border-soft);
+
+      background-image:
+        radial-gradient(circle at top,
+          rgba(255,255,255,0.97) 0%,
+          rgba(255,255,255,0.94) 40%,
+          rgba(255,255,255,0.92) 100%
+        ),
+        url("./hero-bg.jpg");
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      background: rgba(255,255,255,0.88);
+      border-radius: 18px;
+      padding: 22px 20px 24px;
+      border: 1px solid rgba(227,229,234,0.9);
+      backdrop-filter: blur(6px);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      font-size: 0.75rem;
+      color: #555;
+      margin-bottom: 10px;
+      background: #ffffff;
+    }
+
+    .hero h1 {
+      font-size: 1.7rem;
+      margin: 0 0 10px;
+    }
+
+    .hero-lead {
+      margin: 0 0 10px;
+      font-size: 0.96rem;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .hero-text {
+      margin: 0 0 10px;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+      max-width: 650px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+      margin-bottom: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid var(--primary);
+      text-decoration: none;
+      cursor: pointer;
+      background: #ffffff;
+      color: var(--primary);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .hero-subline {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      margin-top: 6px;
+    }
+
+    /* Sections */
+    .section {
+      padding: 32px 20px;
+    }
+
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .section h2 {
+      margin: 0 0 6px;
+      font-size: 1.25rem;
+    }
+
+    .section-intro {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin: 0 0 14px;
+      max-width: 640px;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    @media (min-width: 768px) {
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    .card {
+      border-radius: 10px;
+      border: 1px solid var(--border-soft);
+      padding: 12px 12px 14px;
+      background: #ffffff;
+      font-size: 0.88rem;
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 0.98rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .areas-list {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      font-size: 0.9rem;
+    }
+
+    .areas-list li { margin-bottom: 4px; }
+
+    /* About – very subtle version of the same image */
+    #about {
+      background-image:
+        linear-gradient(to bottom,
+          rgba(255,255,255,0.97),
+          rgba(255,255,255,0.99)
+        ),
+        url("./hero-bg.jpg");
+      background-size: cover;
+      background-position: center bottom;
+      background-attachment: fixed;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    @media (min-width: 760px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      }
+    }
+
+    .box {
+      border-radius: 10px;
+      border: 1px solid var(--border-soft);
+      padding: 14px 14px 16px;
+      background: #ffffff;
+      font-size: 0.88rem;
+    }
+
+    .box p {
+      margin-top: 0;
+      line-height: 1.6;
+    }
+
+    .contact-meta {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    .form-field {
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      font-size: 0.86rem;
+    }
+
+    .form-field label {
+      margin-bottom: 4px;
+      color: #333;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      border-radius: 6px;
+      border: 1px solid var(--border-soft);
+      padding: 8px;
+      font-family: inherit;
+      font-size: 0.86rem;
+      outline: none;
+      background: #ffffff;
+    }
+
+    .form-field textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--primary);
+    }
+
+    .form-help {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      margin-top: 4px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-soft);
+      padding: 16px 20px 18px;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      text-align: center;
+      background: #ffffff;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .footer-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .footer-eho {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hidden-field {
+      display: none; /* honeypot: hidden from humans */
+    }
+
+    /* Language visibility */
+    [data-lang-block] { display: none; }
+
+    body.lang-en [data-lang-block="en"],
+    body.lang-es [data-lang-block="es"],
+    body.lang-ar [data-lang-block="ar"] {
+      display: block;
+    }
+
+    .rtl-block {
+      direction: rtl;
+      text-align: right;
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding-top: 36px; }
+      .hero-inner { padding: 18px 16px 20px; }
+    }
+  </style>
+</head>
+<body class="lang-en">
+<header>
+  <div class="header-inner">
+    <div class="header-row">
+      <div class="brand">
+        <strong>Abraham Zehaifi</strong><br>
+        Houston Apartment Locator · Sponsored by 5th Stream Realty
+      </div>
+      <nav>
+        <div data-lang-block="en">
+          <a href="#services">Services</a>
+          <a href="#areas">Areas</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div data-lang-block="es">
+          <a href="#services">Servicios</a>
+          <a href="#areas">Zonas</a>
+          <a href="#about">Sobre mí</a>
+          <a href="#contact">Contacto</a>
+        </div>
+        <div data-lang-block="ar" class="rtl-block">
+          <a href="#services">الخدمات</a>
+          <a href="#areas">المناطق</a>
+          <a href="#about">نبذة</a>
+          <a href="#contact">تواصل</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="lang-row">
+      <span>Language / Idioma / اللغة:</span>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="ar" dir="rtl">عربي</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <!-- EN -->
+      <div data-lang-block="en">
+        <div class="badge">Houston Apartment &amp; Home Locator</div>
+        <h1>Houston apartment locator for Med Center, Downtown, and West Houston rentals.</h1>
+        <p class="hero-lead">
+          Welcoming Houston renters, buyers, and sellers with calm, clear, full-service real estate help.
+        </p>
+        <p class="hero-text">
+          I focus on apartments and lease homes across Houston — especially the Medical Center, Downtown, Heights,
+          and Energy Corridor. Tell me your price range, areas, and move-in date, and I’ll send a short list of
+          options and guide you through the next steps.
+        </p>
+        <p class="hero-text">
+          For most rentals, there is <strong>no fee to you</strong>. I’m typically paid by the property when allowed.
+        </p>
+      </div>
+
+      <!-- ES -->
+      <div data-lang-block="es">
+        <div class="badge">Localizador de apartamentos en Houston</div>
+        <h1>Localizador de apartamentos en Houston para Med Center, Downtown y West Houston.</h1>
+        <p class="hero-lead">
+          Acompaño a inquilinos, compradores y vendedores en Houston con un servicio inmobiliario sencillo y claro.
+        </p>
+        <p class="hero-text">
+          Me enfoco en departamentos y casas en renta en Houston, en especial en Medical Center, Downtown, Heights
+          y Energy Corridor. Comparte tu presupuesto, zonas preferidas y fecha de mudanza, y te enviaré una lista
+          breve de opciones y los siguientes pasos.
+        </p>
+        <p class="hero-text">
+          En la mayoría de las rentas <strong>no hay costo directo para ti</strong>. Normalmente la propiedad paga mi comisión cuando es permitido.
+        </p>
+      </div>
+
+      <!-- AR -->
+      <div data-lang-block="ar" class="rtl-block">
+        <div class="badge">مستشار شقق في هيوستن</div>
+        <h1>مستشار شقق في هيوستن لمنطقة الميد سنتر، الداون تاون وغرب هيوستن.</h1>
+        <p class="hero-lead">
+          أقدّم خدمة عقارية هادئة وواضحة للمستأجرين والمشترين والبائعين في هيوستن.
+        </p>
+        <p class="hero-text">
+          أركّز على الشقق والمنازل المؤجّرة في هيوستن، خصوصاً قرب الـ Medical Center، الداون تاون، الهايتس وEnergy Corridor.
+          شاركني ميزانيتك والأحياء المفضّلة وتاريخ الانتقال، وسأرسل لك قائمة مختصرة بالخيارات مع الخطوات التالية.
+        </p>
+        <p class="hero-text">
+          في أغلب عقود الإيجار <strong>لا تدفع لي أي أتعاب مباشرة</strong>، غالباً يتم تعويضي من قِبل العقار عندما يكون ذلك مسموحاً.
+        </p>
+      </div>
+
+      <div class="cta-row">
+        <a href="#contact" class="btn btn-primary">Get my Houston apartment list</a>
+        <a href="tel:+17135053888" class="btn">Call / Text: (713) 505-3888</a>
+      </div>
+      <p class="hero-subline">
+        Houston Medical Center · Downtown · Heights · Energy Corridor · Memorial &amp; nearby areas
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="section-inner">
+      <div data-lang-block="en">
+        <div class="section-label">Services</div>
+        <h2>Rentals first, full-service real estate when you need it.</h2>
+        <p class="section-intro">
+          Most people find me when they need an apartment or lease home. Many come back later when it’s time to buy or sell.
+          I’m available for both.
+        </p>
+      </div>
+      <div data-lang-block="es">
+        <div class="section-label">Servicios</div>
+        <h2>Rentas primero, servicio completo cuando quieras comprar o vender.</h2>
+        <p class="section-intro">
+          La mayoría me encuentra buscando un departamento o una casa en renta. Muchos regresan después cuando es momento
+          de comprar o vender. Puedo ayudarte en las dos etapas.
+        </p>
+      </div>
+      <div data-lang-block="ar" class="rtl-block">
+        <div class="section-label">الخدمات</div>
+        <h2>التركيز على الإيجار الآن، وخدمة متكاملة عندما تقرّر الشراء أو البيع.</h2>
+        <p class="section-intro">
+          كثير من العملاء يتواصلون معي أولاً من أجل الإيجار، ثم يعودون لاحقاً عندما يحين وقت الشراء أو البيع.
+          يمكنني مساعدتك في الحالتين.
+        </p>
+      </div>
+
+      <div class="grid grid-3" style="margin-top: 10px;">
+        <div class="card">
+          <div data-lang-block="en">
+            <h3>Apartment locating</h3>
+            <p>
+              Curated lists of apartments that match your budget, areas, and move-in date. I help with questions,
+              applications, and simple next steps.
+            </p>
+          </div>
+          <div data-lang-block="es">
+            <h3>Búsqueda de departamentos</h3>
+            <p>
+              Listas cuidadas de departamentos según tu presupuesto, zonas y fecha de mudanza. Te apoyo con dudas,
+              solicitudes y pasos a seguir.
+            </p>
+          </div>
+          <div data-lang-block="ar" class="rtl-block">
+            <h3>البحث عن شقق</h3>
+            <p>
+              قائمة مختارة من الشقق المناسبة لميزانيتك وأحيائك المفضّلة وتاريخ الانتقال، مع مساعدة في الأسئلة والإجراءات.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div data-lang-block="en">
+            <h3>Lease homes &amp; townhomes</h3>
+            <p>
+              Single-family homes and townhomes for lease in Houston and nearby suburbs, with guidance from first showing to move-in.
+            </p>
+          </div>
+          <div data-lang-block="es">
+            <h3>Casas y townhomes en renta</h3>
+            <p>
+              Casas y townhomes en renta en Houston y alrededores, con acompañamiento desde la primera visita hasta la entrega de llaves.
+            </p>
+          </div>
+          <div data-lang-block="ar" class="rtl-block">
+            <h3>منازل وعقود إيجار سكنية</h3>
+            <p>
+              منازل وتاون هاوس للإيجار في هيوستن وضواحيها، مع متابعة من أول زيارة حتى الاستلام.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div data-lang-block="en">
+            <h3>Buying &amp; selling</h3>
+            <p>
+              When you’re ready, I can help you make a plan to buy or sell — from pricing and offers to closing.
+            </p>
+          </div>
+          <div data-lang-block="es">
+            <h3>Compra y venta</h3>
+            <p>
+              Cuando llegue el momento, puedo ayudarte a planear la compra o venta de tu casa — desde el precio hasta el cierre.
+            </p>
+          </div>
+          <div data-lang-block="ar" class="rtl-block">
+            <h3>شراء وبيع العقارات</h3>
+            <p>
+              عندما تقرّر الشراء أو البيع، أساعدك في وضع خطة واضحة من تحديد السعر حتى إتمام الصفقة.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS -->
+  <section id="areas" class="section" style="background: var(--bg-soft);">
+    <div class="section-inner">
+      <div data-lang-block="en">
+        <div class="section-label">Areas</div>
+        <h2>Houston areas I know well.</h2>
+        <p class="section-intro">
+          I’m based in Houston and familiar with many of the city’s major rental corridors:
+        </p>
+      </div>
+      <div data-lang-block="es">
+        <div class="section-label">Zonas</div>
+        <h2>Zonas de Houston que conozco bien.</h2>
+        <p class="section-intro">
+          Vivo en Houston y conozco muchos de los principales corredores de renta de la ciudad:
+        </p>
+      </div>
+      <div data-lang-block="ar" class="rtl-block">
+        <div class="section-label">المناطق</div>
+        <h2>مناطق في هيوستن أتعامل معها بشكل متكرر.</h2>
+        <p class="section-intro">
+          أعيش في هيوستن ولدي معرفة جيدة بعدة أحياء ومناطق رئيسية للإيجار:
+        </p>
+      </div>
+
+      <ul class="areas-list">
+        <li data-lang-block="en">Inner Loop (Heights, Montrose, Midtown, Medical Center)</li>
+        <li data-lang-block="es">Inner Loop (Heights, Montrose, Midtown, Medical Center)</li>
+        <li data-lang-block="ar" class="rtl-block">إنر لووب (Heights, Montrose, Midtown, Medical Center)</li>
+
+        <li data-lang-block="en">West Houston (Energy Corridor, Memorial, CityCentre)</li>
+        <li data-lang-block="es">West Houston (Energy Corridor, Memorial, CityCentre)</li>
+        <li data-lang-block="ar" class="rtl-block">غرب هيوستن (Energy Corridor, Memorial, CityCentre)</li>
+
+        <li data-lang-block="en">North &amp; Northwest (Spring, Cypress, Tomball)</li>
+        <li data-lang-block="es">Norte y noroeste (Spring, Cypress, Tomball)</li>
+        <li data-lang-block="ar" class="rtl-block">الشمال والشمال الغربي (Spring, Cypress, Tomball)</li>
+
+        <li data-lang-block="en">Other Greater Houston suburbs by request.</li>
+        <li data-lang-block="es">Otros suburbios de Houston según lo que necesites.</li>
+        <li data-lang-block="ar" class="rtl-block">أحياء وضواحي أخرى في منطقة هيوستن حسب طلبك.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="section-inner">
+      <div data-lang-block="en">
+        <div class="section-label">About</div>
+        <h2>About Abraham and 5th Stream Realty.</h2>
+        <p class="section-intro">
+          I’m a Texas-licensed real estate agent sponsored by 5th Stream Realty in Houston.
+          My style is straightforward: listen carefully, respond promptly, and keep the process organized and calm.
+        </p>
+      </div>
+      <div data-lang-block="es">
+        <div class="section-label">Sobre mí</div>
+        <h2>Sobre Abraham y 5th Stream Realty.</h2>
+        <p class="section-intro">
+          Soy un agente inmobiliario con licencia en Texas, patrocinado por 5th Stream Realty en Houston.
+          Mi estilo es sencillo: escuchar, responder a tiempo y mantener el proceso claro y ordenado.
+        </p>
+      </div>
+      <div data-lang-block="ar" class="rtl-block">
+        <div class="section-label">نبذة</div>
+        <h2>عن أبراهام وشركة 5th Stream Realty.</h2>
+        <p class="section-intro">
+          أنا وكيل عقاري مرخّص في تكساس تحت رعاية شركة 5th Stream Realty في هيوستن.
+          أسلوبي بسيط: استماع جيّد، رد سريع، وتنظيم هادئ لخطوات العملية.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section" style="border-top:1px solid var(--border-soft);">
+    <div class="section-inner">
+      <div data-lang-block="en">
+        <div class="section-label">Contact</div>
+        <h2>Share a few details and I’ll take it from there.</h2>
+        <p class="section-intro">
+          You can call, text, or use this form. For rentals, a simple message with your price range, areas,
+          and timing is enough to start.
+        </p>
+      </div>
+      <div data-lang-block="es">
+        <div class="section-label">Contacto</div>
+        <h2>Cuéntame un poco y yo me encargo del resto.</h2>
+        <p class="section-intro">
+          Puedes llamar, mandar mensaje o llenar este formulario. Para rentas, basta un mensaje con tu presupuesto,
+          zonas deseadas y fecha aproximada.
+        </p>
+      </div>
+      <div data-lang-block="ar" class="rtl-block">
+        <div class="section-label">تواصل</div>
+        <h2>شارك بعض التفاصيل، وأنا أكمّل عنك.</h2>
+        <p class="section-intro">
+          يمكنك الاتصال، إرسال رسالة نصية أو تعبئة هذا النموذج. للإيجار، يكفي أن تذكر الميزانية، الأحياء المفضّلة
+          ووقت الانتقال المتوقع.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact info -->
+        <div class="box">
+          <div data-lang-block="en">
+            <p class="contact-meta">
+              <strong>Phone:</strong> <a href="tel:+17135053888">(713) 505-3888</a><br>
+              <strong>Email:</strong> <a href="mailto:zehaifirealty@gmail.com">zehaifirealty@gmail.com</a>
+            </p>
+            <p>
+              Texas Licensed Real Estate Agent sponsored by 5th Stream Realty, Houston, TX.
+              Information on this site is for general purposes only and is not guaranteed.
+            </p>
+            <p class="form-help">
+              Please avoid sharing sensitive information (like Social Security numbers or bank details) in this form or by text.
+            </p>
+          </div>
+          <div data-lang-block="es">
+            <p class="contact-meta">
+              <strong>Teléfono:</strong> <a href="tel:+17135053888">(713) 505-3888</a><br>
+              <strong>Correo:</strong> <a href="mailto:zehaifirealty@gmail.com">zehaifirealty@gmail.com</a>
+            </p>
+            <p>
+              Agente inmobiliario con licencia en Texas, patrocinado por 5th Stream Realty en Houston, TX.
+              La información en este sitio es general y no está garantizada.
+            </p>
+            <p class="form-help">
+              Por tu seguridad, no compartas datos sensibles (como número de seguro social o datos bancarios) en este formulario ni por SMS.
+            </p>
+          </div>
+          <div data-lang-block="ar" class="rtl-block">
+            <p class="contact-meta">
+              <strong>الهاتف:</strong> <a href="tel:+17135053888">(713) 505-3888</a><br>
+              <strong>البريد الإلكتروني:</strong> <a href="mailto:zehaifirealty@gmail.com">zehaifirealty@gmail.com</a>
+            </p>
+            <p>
+              وكيل عقاري مرخّص في تكساس تحت رعاية شركة 5th Stream Realty في هيوستن.
+              المعلومات في هذا الموقع عامة وليست مضمونة بالكامل.
+            </p>
+            <p class="form-help">
+              من الأفضل عدم مشاركة معلومات حساسة (مثل رقم الضمان الاجتماعي أو بيانات بنكية) عبر هذا النموذج أو الرسائل النصية.
+            </p>
+          </div>
+        </div>
+
+        <!-- Netlify form -->
+        <div class="box">
+          <form
+            name="lead"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            action="/thank-you.html"
+          >
+            <input type="hidden" name="form-name" value="lead" />
+
+            <!-- honeypot -->
+            <p class="hidden-field">
+              <label>Don’t fill this out if you’re human:
+                <input name="bot-field">
+              </label>
+            </p>
+
+            <div class="form-field">
+              <label for="name">Name / Nombre / الاسم</label>
+              <input id="name" name="name" type="text" required>
+            </div>
+
+            <div class="form-field">
+              <label for="phone">Phone / Teléfono / الهاتف</label>
+              <input id="phone" name="phone" type="tel" required>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email / Correo / البريد الإلكتروني</label>
+              <input id="email" name="email" type="email">
+            </div>
+
+            <div class="form-field">
+              <label for="lead-type">I’m looking for / Busco / أبحث عن</label>
+              <select id="lead-type" name="lead-type" required>
+                <option value="">Choose one / Elige una opción / اختر نوع الخدمة</option>
+                <option value="Apartment">Apartment / Departamento</option>
+                <option value="House/Townhome for Rent">House/Townhome for Rent / Casa o townhome en renta</option>
+                <option value="Buying">Buying a Home / Comprar casa</option>
+                <option value="Selling">Selling a Home / Vender casa</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="budget">Monthly budget / Presupuesto mensual / الميزانية الشهرية</label>
+              <input id="budget" name="budget" type="text" placeholder="$1,500–$2,000">
+            </div>
+
+            <div class="form-field">
+              <label for="areas">Preferred areas / Zonas deseadas / الأحياء المفضّلة</label>
+              <input id="areas" name="areas" type="text" placeholder="Heights, Med Center, Energy Corridor, etc.">
+            </div>
+
+            <div class="form-field">
+              <label for="move-date">Ideal move-in date / Fecha ideal / التاريخ المثالي للانتقال</label>
+              <input id="move-date" name="move-date" type="text" placeholder="Example: March 15, 2026">
+            </div>
+
+            <div class="form-field">
+              <label for="message">Anything else? / ¿Algo más? / تفاصيل إضافية؟</label>
+              <textarea id="message" name="message" placeholder="Beds/baths, pets, parking, special needs, etc."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send my info</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-row">
+      <div>
+        &copy; <span id="year"></span> Abraham Zehaifi. All Rights Reserved. Sponsored by 5th Stream Realty.
+      </div>
+      <div class="footer-eho">
+        <svg width="20" height="18" viewBox="0 0 20 18" aria-hidden="true" focusable="false">
+          <polygon points="2,7 10,1 18,7" fill="none" stroke="#777" stroke-width="1.5" />
+          <rect x="4" y="7" width="12" height="8" fill="none" stroke="#777" stroke-width="1.5" />
+          <rect x="7" y="9" width="6" height="1.4" fill="#777" />
+          <rect x="7" y="11.2" width="6" height="1.4" fill="#777" />
+        </svg>
+        <span>
+          5th Stream Realty and its associates support the principles of the Fair Housing Act and equal opportunity housing.
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    const body = document.body;
+    const buttons = document.querySelectorAll('.lang-btn');
+    const saved = window.localStorage.getItem('siteLang');
+
+    if (saved && ['en','es','ar'].includes(saved)) {
+      body.className = 'lang-' + saved;
+      buttons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === saved);
+      });
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        if (!lang) return;
+        body.className = 'lang-' + lang;
+        window.localStorage.setItem('siteLang', lang);
+        buttons.forEach(b => b.classList.toggle('active', b === btn));
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
